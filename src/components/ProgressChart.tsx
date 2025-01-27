@@ -13,11 +13,11 @@ const data = [
 
 export const ProgressChart = () => {
   return (
-    <Card className="p-4 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50">
-      <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
+    <Card className="p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50">
+      <h2 className="text-xl font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
         Your Progress
       </h2>
-      <div className="h-[180px] md:h-[200px] w-full">
+      <div className="h-[200px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <XAxis 

@@ -3,32 +3,34 @@ import { MoodTracker } from "@/components/MoodTracker";
 import { ProgressChart } from "@/components/ProgressChart";
 import { DailyChallenge } from "@/components/DailyChallenge";
 import { SchemaStory } from "@/components/SchemaStory";
-import { Heart, Sparkles, Gem } from "lucide-react";
+import { Heart, Sparkles, Gem, Trophy, Home, Book, User } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#F9F9F9] px-4 py-6 md:px-6 md:py-8">
-      <div className="max-w-md mx-auto space-y-4">
-        <header className="text-center mb-6 animate-fade-up">
-          <div className="flex items-center justify-between mb-4 bg-white rounded-2xl p-4 shadow-sm">
-            <div className="flex items-center gap-2">
+    <div className="min-h-screen bg-gradient-to-b from-[#F9F9F9] to-[#F3E8FF] px-4 py-6 pb-24">
+      <div className="max-w-md mx-auto space-y-6">
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 -mx-4 px-4 py-3 mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
               <div className="relative">
-                <Heart className="w-6 h-6 text-[#FF4B4B]" />
+                <Heart className="w-6 h-6 text-[#FF4B4B] animate-pulse" />
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#58CC02] rounded-full flex items-center justify-center text-white text-xs font-bold">
                   5
                 </div>
               </div>
               <div className="flex flex-col items-start">
                 <span className="text-xs text-gray-500">Current Streak</span>
-                <span className="text-lg font-bold text-[#1CB0F6]">7 Days</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent">
+                  7 Days
+                </span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1">
-                <Gem className="w-5 h-5 text-[#1CB0F6]" />
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-yellow-400" />
                 <span className="font-bold text-gray-700">2,450</span>
               </div>
-              <div className="bg-[#58CC02] text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+              <div className="flex items-center gap-2 bg-[#58CC02] text-white px-3 py-1.5 rounded-full text-sm font-bold">
                 <Sparkles className="w-4 h-4" />
                 <span>PLUS</span>
               </div>
@@ -36,10 +38,10 @@ const Index = () => {
           </div>
         </header>
 
-        <div className="grid gap-4 animate-fade-up">
+        <div className="space-y-6 animate-fade-up">
           <MoodTracker />
           
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-4">
             <SchemaCard
               title="Self-Expression"
               description="Finding your voice and owning your story"
@@ -59,14 +61,25 @@ const Index = () => {
           <ProgressChart />
         </div>
 
-        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-2">
+        <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-gray-100 px-6 py-2 z-50">
           <div className="max-w-md mx-auto flex justify-between items-center">
-            {['Learn', 'Practice', 'Profile', 'Shop'].map((item) => (
+            {[
+              { icon: Home, label: 'Home' },
+              { icon: Book, label: 'Learn' },
+              { icon: Trophy, label: 'Goals' },
+              { icon: User, label: 'Profile' }
+            ].map((item) => (
               <button
-                key={item}
-                className="flex flex-col items-center gap-1 px-4 py-2 text-gray-500 hover:text-[#1CB0F6] transition-colors"
+                key={item.label}
+                className="flex flex-col items-center gap-1 px-4 py-2 text-gray-500 hover:text-[#1CB0F6] transition-colors relative group"
               >
-                <span className="text-xs font-medium">{item}</span>
+                <item.icon className="w-6 h-6" />
+                <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  {item.label}
+                </span>
+                {item.label === 'Home' && (
+                  <div className="absolute -bottom-2 w-1 h-1 bg-[#1CB0F6] rounded-full" />
+                )}
               </button>
             ))}
           </div>

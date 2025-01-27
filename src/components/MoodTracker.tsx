@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { motion } from "framer-motion";
 
 const moods = [
   { emoji: "✨", label: "Slay" },
@@ -24,25 +25,30 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-4 bg-white rounded-2xl shadow-sm border-0">
-      <h2 className="text-lg font-bold text-gray-800 mb-3">
+    <Card className="p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50">
+      <h2 className="text-xl font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
         How are you feeling?
       </h2>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-3">
         {moods.map((mood) => (
-          <Button
+          <motion.div
             key={mood.label}
-            variant={selectedMood === mood.label ? "default" : "outline"}
-            className={`h-12 rounded-xl transition-all ${
-              selectedMood === mood.label
-                ? "bg-[#58CC02] hover:bg-[#46A302] text-white shadow-sm"
-                : "bg-white border border-gray-100 hover:border-[#1CB0F6] hover:text-[#1CB0F6]"
-            }`}
-            onClick={() => handleMoodSelect(mood.label)}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
           >
-            <span className="mr-2 text-xl">{mood.emoji}</span>
-            <span className="font-medium text-sm">{mood.label}</span>
-          </Button>
+            <Button
+              variant={selectedMood === mood.label ? "default" : "outline"}
+              className={`w-full h-14 rounded-xl transition-all ${
+                selectedMood === mood.label
+                  ? "bg-[#58CC02] hover:bg-[#46A302] text-white shadow-lg shadow-green-200"
+                  : "bg-white/50 backdrop-blur-sm border border-gray-100 hover:border-[#1CB0F6] hover:text-[#1CB0F6]"
+              }`}
+              onClick={() => handleMoodSelect(mood.label)}
+            >
+              <span className="mr-2 text-2xl">{mood.emoji}</span>
+              <span className="font-medium">{mood.label}</span>
+            </Button>
+          </motion.div>
         ))}
       </div>
     </Card>
