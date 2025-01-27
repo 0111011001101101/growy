@@ -20,11 +20,11 @@ export default {
     extend: {
       colors: {
         therapy: {
-          primary: "#8B5CF6",
-          secondary: "#EC4899",
+          primary: "#9b87f5",
+          secondary: "#FF719A",
           background: "#F3E8FF",
           card: "#FFFFFF",
-          text: "#1F2937",
+          text: "#2D3748",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -63,6 +63,7 @@ export default {
       animation: {
         "card-flip": "flip 0.6s ease-in-out",
         "fade-up": "fadeUp 0.5s ease-out",
+        "pulse": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         flip: {
@@ -72,6 +73,10 @@ export default {
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        pulse: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
         },
       },
     },

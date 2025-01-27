@@ -19,57 +19,57 @@ const storyScenes: StoryScene[] = [
   {
     id: 1,
     situation:
-      "You're invited to a friend's party, but you're feeling anxious about going. What do you do?",
+      "Your bestie invites you to a pride parade, but you're feeling anxious about being your authentic self in public. What's your move?",
     choices: [
       {
-        text: "Make an excuse and stay home",
+        text: "Stay home and watch the highlights on TikTok",
         nextScene: 2,
-        impact: "This might reinforce social isolation schema",
+        impact: "It's okay to take things at your own pace 💜",
       },
       {
-        text: "Go for a short time with a trusted friend",
+        text: "Go with your bestie as emotional support",
         nextScene: 3,
-        impact: "This challenges the avoidance pattern",
+        impact: "Small steps lead to big changes ✨",
       },
     ],
   },
   {
     id: 2,
     situation:
-      "Staying home, you start to feel regretful about missing out. How do you handle these feelings?",
+      "While scrolling through parade posts, you're feeling FOMO. How do you handle it?",
     choices: [
       {
-        text: "Journal about your feelings",
+        text: "DM your bestie to share your feelings",
         nextScene: 4,
-        impact: "Self-reflection helps understand patterns",
+        impact: "Opening up builds stronger connections 💌",
       },
       {
-        text: "Text your friend to reconnect",
+        text: "Join a virtual LGBTQ+ community chat",
         nextScene: 4,
-        impact: "Taking action to maintain connections",
+        impact: "Finding your online tribe is valid too 🌈",
       },
     ],
   },
   {
     id: 3,
     situation:
-      "At the party, you're having a better time than expected. What's your next move?",
+      "At the parade, you're vibing with the positive energy. What next?",
     choices: [
       {
-        text: "Stay longer and meet new people",
+        text: "Take that perfect pride selfie",
         nextScene: 4,
-        impact: "Building confidence in social situations",
+        impact: "Capturing moments of joy and authenticity 📸",
       },
       {
-        text: "Thank your friend and head home proud",
+        text: "Join the dance circle",
         nextScene: 4,
-        impact: "Acknowledging personal growth",
+        impact: "Embracing your true self feels amazing 💃",
       },
     ],
   },
   {
     id: 4,
-    situation: "Congratulations! You've completed this story path. What did you learn about yourself?",
+    situation: "You've grown so much today! What did this experience teach you about self-acceptance?",
     choices: [],
   },
 ];
