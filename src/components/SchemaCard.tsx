@@ -13,17 +13,19 @@ export const SchemaCard = ({ title, description, example }: SchemaCardProps) => 
 
   return (
     <motion.div
-      className="relative h-[140px]"
+      className="relative h-[140px] perspective-1000"
       initial={false}
       animate={{ rotateY: isFlipped ? 180 : 0 }}
       transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
       onClick={() => setIsFlipped(!isFlipped)}
+      style={{ transformStyle: 'preserve-3d' }}
     >
       <AnimatePresence>
         <Card 
           className={`absolute inset-0 p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50 ${
             isFlipped ? "backface-hidden" : ""
           }`}
+          style={{ backfaceVisibility: 'hidden' }}
         >
           <h3 className="text-lg font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-2">
             {title}
@@ -37,7 +39,10 @@ export const SchemaCard = ({ title, description, example }: SchemaCardProps) => 
           className={`absolute inset-0 p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50 ${
             !isFlipped ? "backface-hidden" : ""
           }`} 
-          style={{ transform: "rotateY(180deg)" }}
+          style={{ 
+            transform: 'rotateY(180deg)',
+            backfaceVisibility: 'hidden'
+          }}
         >
           <h4 className="text-lg font-bold text-[#FF4B4B] mb-2">
             Example:

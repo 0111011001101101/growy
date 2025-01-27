@@ -19,7 +19,7 @@ export const ProgressChart = () => {
       </h2>
       <div className="h-[200px] w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
+          <LineChart data={data} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
             <XAxis 
               dataKey="day" 
               stroke="#666666" 

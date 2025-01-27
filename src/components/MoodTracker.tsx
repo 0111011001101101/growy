@@ -40,7 +40,7 @@ export const MoodTracker = () => {
               variant={selectedMood === mood.label ? "default" : "outline"}
               className={`w-full h-14 rounded-xl transition-all ${
                 selectedMood === mood.label
-                  ? "bg-[#58CC02] hover:bg-[#46A302] text-white shadow-lg shadow-green-200"
+                  ? "bg-[#58CC02] hover:bg-[#46A302] text-white shadow-lg shadow-green-200/50"
                   : "bg-white/50 backdrop-blur-sm border border-gray-100 hover:border-[#1CB0F6] hover:text-[#1CB0F6]"
               }`}
               onClick={() => handleMoodSelect(mood.label)}
