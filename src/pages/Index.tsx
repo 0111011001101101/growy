@@ -3,54 +3,43 @@ import { MoodTracker } from "@/components/MoodTracker";
 import { ProgressChart } from "@/components/ProgressChart";
 import { DailyChallenge } from "@/components/DailyChallenge";
 import { SchemaStory } from "@/components/SchemaStory";
-import { Sparkles, Flame } from "lucide-react";
+import { Heart, Sparkles, Gem } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F7F7F7] via-white to-[#F0F7FF] px-4 py-6 md:px-6 md:py-8">
-      <div className="max-w-lg mx-auto space-y-4 md:space-y-6">
-        <header className="text-center mb-6 md:mb-8 animate-fade-up backdrop-blur-md bg-white/70 rounded-2xl p-4 md:p-6 border border-white/50 shadow-lg">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <div className="relative">
-              <Flame className="w-7 h-7 md:w-8 md:h-8 text-[#58CC02] animate-bounce" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#FF4B4B] rounded-full flex items-center justify-center text-white text-xs font-bold">
-                3
+    <div className="min-h-screen bg-[#F9F9F9] px-4 py-6 md:px-6 md:py-8">
+      <div className="max-w-md mx-auto space-y-4">
+        <header className="text-center mb-6 animate-fade-up">
+          <div className="flex items-center justify-between mb-4 bg-white rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="relative">
+                <Heart className="w-6 h-6 text-[#FF4B4B]" />
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#58CC02] rounded-full flex items-center justify-center text-white text-xs font-bold">
+                  5
+                </div>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-xs text-gray-500">Current Streak</span>
+                <span className="text-lg font-bold text-[#1CB0F6]">7 Days</span>
               </div>
             </div>
-            <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#1CB0F6] via-[#58CC02] to-[#FF4B4B] bg-clip-text text-transparent">
-              Schema Quest
-            </h1>
-            <Sparkles className="w-7 h-7 md:w-8 md:h-8 text-[#1CB0F6] animate-pulse" />
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
+                <Gem className="w-5 h-5 text-[#1CB0F6]" />
+                <span className="font-bold text-gray-700">2,450</span>
+              </div>
+              <div className="bg-[#58CC02] text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                <Sparkles className="w-4 h-4" />
+                <span>PLUS</span>
+              </div>
+            </div>
           </div>
-          <p className="text-base md:text-lg text-gray-600 font-medium">
-            Level up your self-awareness! ✨
-          </p>
         </header>
 
-        <div className="grid gap-4 md:gap-6 animate-fade-up">
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-4 md:p-6 border border-white/50">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-[#58CC02] to-[#46A302] text-white font-bold rounded-xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-lg md:text-xl shadow-md">
-                  7
-                </div>
-                <div className="text-left">
-                  <h2 className="text-lg md:text-xl font-bold text-[#1CB0F6]">Day Streak!</h2>
-                  <p className="text-sm md:text-base text-gray-600">Keep going strong! 🔥</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-gradient-to-r from-[#1CB0F6] to-[#1C9FF6] text-white px-4 py-2 rounded-xl font-bold flex items-center gap-2 shadow-md">
-                  <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-                  <span className="text-base md:text-lg">2,450 XP</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div className="grid gap-4 animate-fade-up">
           <MoodTracker />
           
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-3">
             <SchemaCard
               title="Self-Expression"
               description="Finding your voice and owning your story"
@@ -69,6 +58,19 @@ const Index = () => {
 
           <ProgressChart />
         </div>
+
+        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-2">
+          <div className="max-w-md mx-auto flex justify-between items-center">
+            {['Learn', 'Practice', 'Profile', 'Shop'].map((item) => (
+              <button
+                key={item}
+                className="flex flex-col items-center gap-1 px-4 py-2 text-gray-500 hover:text-[#1CB0F6] transition-colors"
+              >
+                <span className="text-xs font-medium">{item}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
       </div>
     </div>
   );

@@ -24,24 +24,24 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-4 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50">
-      <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
-        Current Vibe Check
+    <Card className="p-4 bg-white rounded-2xl shadow-sm border-0">
+      <h2 className="text-lg font-bold text-gray-800 mb-3">
+        How are you feeling?
       </h2>
       <div className="grid grid-cols-2 gap-2">
         {moods.map((mood) => (
           <Button
             key={mood.label}
             variant={selectedMood === mood.label ? "default" : "outline"}
-            className={`text-base p-3 h-auto transition-all rounded-xl ${
+            className={`h-12 rounded-xl transition-all ${
               selectedMood === mood.label
-                ? "bg-gradient-to-br from-[#58CC02] to-[#46A302] hover:from-[#58CC02] hover:to-[#46A302] text-white border border-[#46A302] shadow-md"
-                : "border border-[#E5E5E5] hover:border-[#58CC02] bg-white/90 hover:bg-white backdrop-blur-sm"
+                ? "bg-[#58CC02] hover:bg-[#46A302] text-white shadow-sm"
+                : "bg-white border border-gray-100 hover:border-[#1CB0F6] hover:text-[#1CB0F6]"
             }`}
             onClick={() => handleMoodSelect(mood.label)}
           >
             <span className="mr-2 text-xl">{mood.emoji}</span>
-            <span className="font-medium">{mood.label}</span>
+            <span className="font-medium text-sm">{mood.label}</span>
           </Button>
         ))}
       </div>
