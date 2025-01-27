@@ -13,20 +13,28 @@ const data = [
 
 export const ProgressChart = () => {
   return (
-    <Card className="p-6 bg-therapy-card rounded-xl shadow-lg">
-      <h2 className="text-2xl font-bold text-therapy-primary mb-4">Your Progress</h2>
+    <Card className="p-6 bg-white rounded-2xl shadow-lg border-2 border-[#1CB0F6]">
+      <h2 className="text-2xl font-extrabold text-[#1CB0F6] mb-4">Your Progress</h2>
       <div className="h-[200px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
+            <XAxis dataKey="day" stroke="#666666" />
+            <YAxis stroke="#666666" />
+            <Tooltip 
+              contentStyle={{ 
+                background: 'white',
+                border: '2px solid #58CC02',
+                borderRadius: '12px',
+                padding: '8px'
+              }}
+            />
             <Line
               type="monotone"
               dataKey="score"
-              stroke="#8B5CF6"
-              strokeWidth={2}
-              dot={{ fill: "#8B5CF6" }}
+              stroke="#58CC02"
+              strokeWidth={3}
+              dot={{ fill: "#58CC02", strokeWidth: 2, r: 6 }}
+              activeDot={{ r: 8, fill: "#46A302" }}
             />
           </LineChart>
         </ResponsiveContainer>

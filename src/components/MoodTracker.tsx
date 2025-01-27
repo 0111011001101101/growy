@@ -24,8 +24,8 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-6 bg-therapy-card rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-      <h2 className="text-2xl font-bold bg-gradient-to-r from-therapy-primary to-therapy-secondary bg-clip-text text-transparent mb-4">
+    <Card className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border-2 border-[#58CC02]">
+      <h2 className="text-2xl font-extrabold text-[#1CB0F6] mb-4">
         Current Vibe Check
       </h2>
       <div className="flex flex-wrap gap-4 justify-center">
@@ -33,15 +33,15 @@ export const MoodTracker = () => {
           <Button
             key={mood.label}
             variant={selectedMood === mood.label ? "default" : "outline"}
-            className={`text-2xl p-4 h-auto transition-all hover:scale-105 ${
+            className={`text-2xl p-4 h-auto transition-all hover:scale-105 rounded-xl ${
               selectedMood === mood.label
-                ? "bg-gradient-to-r from-therapy-primary to-therapy-secondary text-white"
-                : ""
+                ? "bg-[#58CC02] hover:bg-[#58CC02]/90 text-white border-2 border-[#46A302]"
+                : "border-2 border-[#E5E5E5] hover:border-[#58CC02]"
             }`}
             onClick={() => handleMoodSelect(mood.label)}
           >
             <span className="mr-2">{mood.emoji}</span>
-            <span className="text-sm">{mood.label}</span>
+            <span className="text-sm font-bold">{mood.label}</span>
           </Button>
         ))}
       </div>

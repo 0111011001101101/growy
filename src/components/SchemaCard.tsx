@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 interface SchemaCardProps {
   title: string;
@@ -19,18 +18,18 @@ export const SchemaCard = ({ title, description, example }: SchemaCardProps) => 
         }`}
         onClick={() => setIsFlipped(!isFlipped)}
       >
-        <Card className="p-6 bg-therapy-card rounded-xl shadow-lg">
+        <Card className="p-6 bg-white rounded-2xl shadow-lg border-2 border-[#1CB0F6]">
           <div className={`${isFlipped ? "hidden" : "block"}`}>
-            <h3 className="text-xl font-bold text-therapy-primary mb-3">{title}</h3>
-            <p className="text-therapy-text">{description}</p>
+            <h3 className="text-xl font-extrabold text-[#1CB0F6] mb-3">{title}</h3>
+            <p className="text-gray-700 font-medium">{description}</p>
           </div>
           <div
-            className={`absolute inset-0 p-6 bg-therapy-card rounded-xl backface-hidden rotate-y-180 ${
+            className={`absolute inset-0 p-6 bg-white rounded-2xl backface-hidden rotate-y-180 border-2 border-[#FF4B4B] ${
               isFlipped ? "block" : "hidden"
             }`}
           >
-            <h4 className="text-lg font-semibold text-therapy-secondary mb-3">Example:</h4>
-            <p className="text-therapy-text">{example}</p>
+            <h4 className="text-lg font-bold text-[#FF4B4B] mb-3">Example:</h4>
+            <p className="text-gray-700 font-medium">{example}</p>
           </div>
         </Card>
       </div>
