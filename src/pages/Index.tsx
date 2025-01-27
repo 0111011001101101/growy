@@ -3,6 +3,7 @@ import { MoodTracker } from "@/components/MoodTracker";
 import { ProgressChart } from "@/components/ProgressChart";
 import { DailyChallenge } from "@/components/DailyChallenge";
 import { SchemaStory } from "@/components/SchemaStory";
+import { Assignments } from "@/components/Assignments";
 import { Heart, Sparkles, Trophy, Home, Book, User } from "lucide-react";
 
 const Index = () => {
@@ -39,6 +40,7 @@ const Index = () => {
 
       <div className="space-y-6 animate-fade-up">
         <MoodTracker />
+        <Assignments />
         
         <div className="grid grid-cols-1 gap-4">
           <SchemaCard
@@ -54,19 +56,17 @@ const Index = () => {
         </div>
 
         <DailyChallenge />
-        
         <SchemaStory />
-
         <ProgressChart />
       </div>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-gray-100 px-6 py-2 z-50">
         <div className="max-w-[500px] mx-auto flex justify-between items-center">
           {[
-            { icon: Home, label: 'Home' },
-            { icon: Book, label: 'Learn' },
-            { icon: Trophy, label: 'Goals' },
-            { icon: User, label: 'Profile' }
+            { icon: Home, label: "Home" },
+            { icon: Book, label: "Learn" },
+            { icon: Trophy, label: "Goals" },
+            { icon: User, label: "Profile" }
           ].map((item) => (
             <button
               key={item.label}
@@ -76,7 +76,7 @@ const Index = () => {
               <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                 {item.label}
               </span>
-              {item.label === 'Home' && (
+              {item.label === "Home" && (
                 <div className="absolute -bottom-2 w-1 h-1 bg-[#1CB0F6] rounded-full" />
               )}
             </button>
