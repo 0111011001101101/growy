@@ -1,6 +1,8 @@
 import { SchemaCard } from "@/components/SchemaCard";
 import { MoodTracker } from "@/components/MoodTracker";
 import { ProgressChart } from "@/components/ProgressChart";
+import { DailyChallenge } from "@/components/DailyChallenge";
+import { SchemaStory } from "@/components/SchemaStory";
 
 const Index = () => {
   return (
@@ -25,6 +27,10 @@ const Index = () => {
             example="Getting anxious when your bestie doesn't reply to your text right away 📱"
           />
         </div>
+
+        <DailyChallenge />
+        
+        <SchemaStory />
 
         <ProgressChart />
       </div>
