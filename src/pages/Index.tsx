@@ -7,12 +7,12 @@ import { Sparkles, Flame } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#58CC02] bg-opacity-5 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 p-6">
       <div className="max-w-4xl mx-auto space-y-8">
         <header className="text-center mb-12 animate-fade-up">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Flame className="w-10 h-10 text-[#58CC02] animate-bounce" />
-            <h1 className="text-4xl font-extrabold text-[#1CB0F6]">
+            <h1 className="text-4xl font-extrabold bg-gradient-to-r from-[#1CB0F6] via-[#58CC02] to-[#FF4B4B] bg-clip-text text-transparent">
               Schema Quest
             </h1>
             <Sparkles className="w-10 h-10 text-[#FF4B4B] animate-pulse" />
@@ -23,10 +23,10 @@ const Index = () => {
         </header>
 
         <div className="grid gap-6 animate-fade-up">
-          <div className="bg-white rounded-2xl shadow-lg p-4 border-2 border-[#58CC02] mb-8">
+          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 border-2 border-[#58CC02]/20 backdrop-blur-sm">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="bg-[#58CC02] text-white font-bold rounded-full w-12 h-12 flex items-center justify-center text-xl">
+                <div className="bg-gradient-to-br from-[#58CC02] to-[#46A302] text-white font-bold rounded-full w-12 h-12 flex items-center justify-center text-xl shadow-lg">
                   7
                 </div>
                 <div className="text-left">
@@ -35,7 +35,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="bg-[#1CB0F6] text-white px-4 py-2 rounded-xl font-bold flex items-center gap-2">
+                <div className="bg-gradient-to-r from-[#1CB0F6] to-[#1C9FF6] text-white px-4 py-2 rounded-xl font-bold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all">
                   <Sparkles className="w-5 h-5" />
                   <span>2,450 XP</span>
                 </div>

@@ -24,8 +24,8 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border-2 border-[#58CC02]">
-      <h2 className="text-2xl font-extrabold text-[#1CB0F6] mb-4">
+    <Card className="p-6 bg-gradient-to-br from-white to-purple-50/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 border-2 border-[#58CC02]/20 backdrop-blur-sm">
+      <h2 className="text-2xl font-extrabold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
         Current Vibe Check
       </h2>
       <div className="flex flex-wrap gap-4 justify-center">
@@ -35,8 +35,8 @@ export const MoodTracker = () => {
             variant={selectedMood === mood.label ? "default" : "outline"}
             className={`text-2xl p-4 h-auto transition-all hover:scale-105 rounded-xl ${
               selectedMood === mood.label
-                ? "bg-[#58CC02] hover:bg-[#58CC02]/90 text-white border-2 border-[#46A302]"
-                : "border-2 border-[#E5E5E5] hover:border-[#58CC02]"
+                ? "bg-gradient-to-br from-[#58CC02] to-[#46A302] hover:from-[#58CC02] hover:to-[#46A302] text-white border-2 border-[#46A302] shadow-lg"
+                : "border-2 border-[#E5E5E5] hover:border-[#58CC02] bg-white hover:bg-white/90"
             }`}
             onClick={() => handleMoodSelect(mood.label)}
           >

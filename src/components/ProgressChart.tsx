@@ -13,8 +13,10 @@ const data = [
 
 export const ProgressChart = () => {
   return (
-    <Card className="p-6 bg-white rounded-2xl shadow-lg border-2 border-[#1CB0F6]">
-      <h2 className="text-2xl font-extrabold text-[#1CB0F6] mb-4">Your Progress</h2>
+    <Card className="p-6 bg-gradient-to-br from-white to-blue-50/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 border-2 border-[#1CB0F6]/20 backdrop-blur-sm">
+      <h2 className="text-2xl font-extrabold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
+        Your Progress
+      </h2>
       <div className="h-[200px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
@@ -25,7 +27,8 @@ export const ProgressChart = () => {
                 background: 'white',
                 border: '2px solid #58CC02',
                 borderRadius: '12px',
-                padding: '8px'
+                padding: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
               }}
             />
             <Line
