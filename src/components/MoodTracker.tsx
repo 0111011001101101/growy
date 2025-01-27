@@ -24,24 +24,24 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-4 md:p-8 bg-white/80 backdrop-blur-md rounded-xl md:rounded-3xl shadow-xl md:shadow-2xl border-2 border-[#1CB0F6]/20 transform hover:scale-[1.01] transition-all duration-300">
-      <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4 md:mb-6">
+    <Card className="p-4 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50">
+      <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
         Current Vibe Check
       </h2>
-      <div className="grid grid-cols-2 md:flex md:flex-wrap gap-2 md:gap-4 justify-center">
+      <div className="grid grid-cols-2 gap-2">
         {moods.map((mood) => (
           <Button
             key={mood.label}
             variant={selectedMood === mood.label ? "default" : "outline"}
-            className={`text-xl md:text-2xl p-3 md:p-6 h-auto transition-all hover:scale-105 rounded-xl md:rounded-2xl ${
+            className={`text-base p-3 h-auto transition-all rounded-xl ${
               selectedMood === mood.label
-                ? "bg-gradient-to-br from-[#58CC02] to-[#46A302] hover:from-[#58CC02] hover:to-[#46A302] text-white border-2 border-[#46A302] shadow-lg"
-                : "border-2 border-[#E5E5E5] hover:border-[#58CC02] bg-white/90 hover:bg-white backdrop-blur-sm"
+                ? "bg-gradient-to-br from-[#58CC02] to-[#46A302] hover:from-[#58CC02] hover:to-[#46A302] text-white border border-[#46A302] shadow-md"
+                : "border border-[#E5E5E5] hover:border-[#58CC02] bg-white/90 hover:bg-white backdrop-blur-sm"
             }`}
             onClick={() => handleMoodSelect(mood.label)}
           >
-            <span className="mr-2 md:mr-3 text-2xl md:text-3xl">{mood.emoji}</span>
-            <span className="text-base md:text-lg font-bold">{mood.label}</span>
+            <span className="mr-2 text-xl">{mood.emoji}</span>
+            <span className="font-medium">{mood.label}</span>
           </Button>
         ))}
       </div>
