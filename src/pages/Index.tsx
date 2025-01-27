@@ -1,4 +1,4 @@
-import { SchemaCard } from "@/components/SchemaCard";
+import { SchemaCard, schemaTherapyCards } from "@/components/SchemaCard";
 import { MoodTracker } from "@/components/MoodTracker";
 import { ProgressChart } from "@/components/ProgressChart";
 import { DailyChallenge } from "@/components/DailyChallenge";
@@ -42,18 +42,20 @@ const Index = () => {
         <MoodTracker />
         <Assignments />
         
-        <div className="grid grid-cols-1 gap-4">
-          <SchemaCard
-            title="Self-Expression"
-            description="Finding your voice and owning your story"
-            example="When you feel like you can't be your authentic self on social media 🎭"
-          />
-          <SchemaCard
-            title="Relationships"
-            description="Navigating connections and boundaries"
-            example="When you're overthinking if your crush left you on read 💭"
-          />
-        </div>
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold text-gray-800">Schema Patterns</h2>
+          <div className="grid grid-cols-1 gap-4">
+            {schemaTherapyCards.map((card, index) => (
+              <SchemaCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                example={card.example}
+                type={card.type}
+              />
+            ))}
+          </div>
+        </section>
 
         <DailyChallenge />
         <SchemaStory />
