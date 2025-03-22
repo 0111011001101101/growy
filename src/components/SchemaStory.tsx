@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -92,11 +91,11 @@ export const SchemaStory = () => {
   const scene = storyScenes.find((s) => s.id === currentScene);
 
   return (
-    <Card className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+    <Card className="p-6 bg-white rounded-xl shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <BookOpen className="text-blue-600 w-7 h-7" />
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold text-blue-600">
             Story Quest
           </h2>
         </div>
@@ -126,12 +125,10 @@ export const SchemaStory = () => {
             <Button
               key={index}
               onClick={() => handleChoice(choice)}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium py-2 px-3 rounded-lg transition-all duration-300 hover:shadow-md text-sm sm:text-base h-auto break-words"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-xl h-auto text-left flex items-center"
             >
-              <span className="flex items-center gap-2 flex-wrap">
-                <Star className="w-4 h-4 text-yellow-300 shrink-0" />
-                <span className="text-left">{choice.text}</span>
-              </span>
+              <Star className="w-5 h-5 text-yellow-300 mr-3 flex-shrink-0" />
+              <span>{choice.text}</span>
             </Button>
           ))}
         </div>
@@ -141,7 +138,7 @@ export const SchemaStory = () => {
               setCurrentScene(1);
               setXp(0);
             }} 
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-2 rounded-lg mt-4 transition-all duration-300 h-auto"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-xl mt-4 h-auto"
           >
             Start New Quest ✨
           </Button>
