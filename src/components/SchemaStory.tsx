@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -125,10 +126,13 @@ export const SchemaStory = () => {
             <Button
               key={index}
               onClick={() => handleChoice(choice)}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-xl h-auto text-left flex items-center"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-xl h-auto text-left"
+              size="lg"
             >
-              <Star className="w-5 h-5 text-yellow-300 mr-3 flex-shrink-0" />
-              <span>{choice.text}</span>
+              <div className="flex items-start gap-2">
+                <Star className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" />
+                <span className="inline-block break-words">{choice.text}</span>
+              </div>
             </Button>
           ))}
         </div>
