@@ -126,10 +126,10 @@ export const SchemaStory = () => {
             <Button
               key={index}
               onClick={() => handleChoice(choice)}
-              className="w-full bg-white border-2 border-blue-200 hover:border-blue-400 text-blue-800 font-medium py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md"
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md"
             >
               <span className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-400" />
+                <Star className="w-5 h-5 text-yellow-300" />
                 {choice.text}
               </span>
             </Button>
@@ -141,7 +141,7 @@ export const SchemaStory = () => {
               setCurrentScene(1);
               setXp(0);
             }} 
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl mt-4 transition-all duration-300"
+            className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 rounded-lg mt-4 transition-all duration-300"
           >
             Start New Quest ✨
           </Button>
