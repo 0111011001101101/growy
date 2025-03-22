@@ -52,7 +52,7 @@ const Index = () => {
                 title={card.title}
                 description={card.description}
                 example={card.example}
-                type={card.type}
+                type={card.type as "emotional" | "cognitive" | "behavioral" | "interpersonal" | "coping"}
               />
             ))}
           </div>
