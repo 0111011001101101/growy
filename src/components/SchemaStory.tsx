@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,57 +20,57 @@ const storyScenes: StoryScene[] = [
   {
     id: 1,
     situation:
-      "Your bestie invites you to a pride parade, but you're feeling anxious about being your authentic self in public. What's your move? 🌈",
+      "A friend invites you to a social gathering, but you're feeling anxious about meeting new people. What's your approach? 🤔",
     choices: [
       {
-        text: "Stay home and watch the highlights on TikTok 📱",
+        text: "Choose to stay home and catch up on your favorite show 📱",
         nextScene: 2,
         impact: "Self-care is important! Taking things at your own pace 💜",
       },
       {
-        text: "Go with your bestie as emotional support 🫂",
+        text: "Go with your friend as emotional support 🫂",
         nextScene: 3,
-        impact: "Yasss! Small steps lead to big changes ✨",
+        impact: "Great! Small steps lead to big changes ✨",
       },
     ],
   },
   {
     id: 2,
     situation:
-      "While scrolling through parade posts, you're feeling FOMO. How do you handle it? 🤔",
+      "While scrolling through social media, you notice photos from the gathering and feel left out. How do you respond? 🤔",
     choices: [
       {
-        text: "DM your bestie to share your feelings 💌",
+        text: "Message your friend to share your feelings 💌",
         nextScene: 4,
         impact: "Opening up builds stronger connections 💕",
       },
       {
-        text: "Join a virtual LGBTQ+ community chat 🎮",
+        text: "Join an online community with similar interests 🎮",
         nextScene: 4,
-        impact: "Finding your online tribe is valid too! 🌈",
+        impact: "Finding your tribe in different ways is valid too! 🌟",
       },
     ],
   },
   {
     id: 3,
     situation:
-      "At the parade, you're vibing with the positive energy. What next? ✨",
+      "At the gathering, you're starting to enjoy the positive energy. What do you do next? ✨",
     choices: [
       {
-        text: "Take that perfect pride selfie 📸",
+        text: "Take a moment to appreciate your progress 📸",
         nextScene: 4,
-        impact: "Capturing moments of joy and authenticity 🎉",
+        impact: "Acknowledging moments of growth is powerful 🎉",
       },
       {
-        text: "Join the dance circle 💃",
+        text: "Initiate a conversation with someone new 💬",
         nextScene: 4,
-        impact: "Slaying and embracing your true self! 👑",
+        impact: "Building confidence through small challenges! 👏",
       },
     ],
   },
   {
     id: 4,
-    situation: "You've grown so much today! What did this experience teach you about self-acceptance? 🌟",
+    situation: "You've grown through this experience! What did this teach you about managing social anxiety? 🌟",
     choices: [],
   },
 ];
@@ -94,15 +95,15 @@ export const SchemaStory = () => {
     <Card className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <BookOpen className="text-purple-500 w-7 h-7" />
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+          <BookOpen className="text-blue-600 w-7 h-7" />
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Story Quest
           </h2>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Trophy className="text-yellow-400 w-5 h-5" />
-            <span className="font-bold text-purple-700">{xp} XP</span>
+            <span className="font-bold text-blue-700">{xp} XP</span>
           </div>
           <div className="flex">
             {[...Array(3)].map((_, i) => (
@@ -112,8 +113,8 @@ export const SchemaStory = () => {
         </div>
       </div>
       <div className="space-y-4">
-        <div className="bg-purple-50 p-4 rounded-xl mb-6">
-          <p className="text-purple-800 text-lg font-medium">{scene?.situation}</p>
+        <div className="bg-blue-50 p-4 rounded-xl mb-6">
+          <p className="text-blue-800 text-lg font-medium">{scene?.situation}</p>
         </div>
         {showImpact && (
           <div className="bg-green-100 text-green-800 p-4 rounded-xl mb-4 animate-bounce">
@@ -125,7 +126,7 @@ export const SchemaStory = () => {
             <Button
               key={index}
               onClick={() => handleChoice(choice)}
-              className="w-full bg-white border-2 border-purple-200 hover:border-purple-400 text-purple-800 font-medium py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md"
+              className="w-full bg-white border-2 border-blue-200 hover:border-blue-400 text-blue-800 font-medium py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md"
             >
               <span className="flex items-center gap-2">
                 <Star className="w-5 h-5 text-yellow-400" />
@@ -140,7 +141,7 @@ export const SchemaStory = () => {
               setCurrentScene(1);
               setXp(0);
             }} 
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl mt-4 transition-all duration-300"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl mt-4 transition-all duration-300"
           >
             Start New Quest ✨
           </Button>

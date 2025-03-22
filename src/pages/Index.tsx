@@ -1,3 +1,4 @@
+
 import { SchemaCard, schemaTherapyCards } from "@/components/SchemaCard";
 import { MoodTracker } from "@/components/MoodTracker";
 import { ProgressChart } from "@/components/ProgressChart";
