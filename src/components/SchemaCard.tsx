@@ -18,35 +18,44 @@ const schemaIcons = {
   coping: Shield,
 };
 
+const schemaColors = {
+  emotional: "text-pink-500 bg-pink-50",
+  cognitive: "text-blue-500 bg-blue-50",
+  behavioral: "text-amber-500 bg-amber-50",
+  interpersonal: "text-purple-500 bg-purple-50",
+  coping: "text-green-500 bg-green-50",
+};
+
 export const SchemaCard = ({ title, description, example, type }: SchemaCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const Icon = schemaIcons[type];
+  const colorClass = schemaColors[type];
 
   return (
     <motion.div
-      className="relative h-[180px] perspective-1000 cursor-pointer"
+      className="relative h-32 perspective-1000 cursor-pointer"
       initial={false}
       animate={{ rotateY: isFlipped ? 180 : 0 }}
-      transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+      transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
       onClick={() => setIsFlipped(!isFlipped)}
       style={{ transformStyle: 'preserve-3d' }}
     >
       <AnimatePresence>
         <Card 
-          className={`absolute inset-0 p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50 ${
+          className={`absolute inset-0 p-4 bg-white rounded-lg shadow-sm border border-gray-100 ${
             isFlipped ? "backface-hidden" : ""
           }`}
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <div className="flex items-start gap-4">
-            <div className="p-2 rounded-full bg-therapy-primary/10">
-              <Icon className="w-6 h-6 text-therapy-primary" />
+          <div className="flex items-start gap-3">
+            <div className={`p-1.5 rounded-lg ${colorClass.split(" ")[1]}`}>
+              <Icon className={`w-4 h-4 ${colorClass.split(" ")[0]}`} />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold bg-gradient-to-r from-therapy-primary to-therapy-secondary bg-clip-text text-transparent mb-2">
+              <h3 className="text-sm font-semibold text-gray-800 mb-1">
                 {title}
               </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
+              <p className="text-gray-600 text-xs leading-relaxed">
                 {description}
               </p>
             </div>
@@ -54,7 +63,7 @@ export const SchemaCard = ({ title, description, example, type }: SchemaCardProp
         </Card>
 
         <Card 
-          className={`absolute inset-0 p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50 ${
+          className={`absolute inset-0 p-4 bg-white rounded-lg shadow-sm border border-gray-100 ${
             !isFlipped ? "backface-hidden" : ""
           }`} 
           style={{ 
@@ -64,14 +73,14 @@ export const SchemaCard = ({ title, description, example, type }: SchemaCardProp
         >
           <div className="h-full flex flex-col justify-between">
             <div>
-              <h4 className="text-lg font-bold text-therapy-secondary mb-2">
+              <h4 className="text-sm font-semibold text-gray-800 mb-1">
                 Example:
               </h4>
-              <p className="text-gray-600 leading-relaxed text-sm">
+              <p className="text-gray-600 text-xs leading-relaxed">
                 {example}
               </p>
             </div>
-            <div className="text-xs text-gray-400 italic">
+            <div className="text-[10px] text-gray-400 italic mt-2">
               Tap to flip back
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -25,28 +26,28 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50">
-      <h2 className="text-xl font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent mb-4">
+    <Card className="p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+      <h2 className="text-lg font-semibold text-gray-800 mb-4">
         How are you feeling?
       </h2>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2">
         {moods.map((mood) => (
           <motion.div
             key={mood.label}
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.02 }}
           >
             <Button
               variant={selectedMood === mood.label ? "default" : "outline"}
-              className={`w-full h-14 rounded-xl transition-all ${
+              className={`w-full h-12 rounded-lg transition-all ${
                 selectedMood === mood.label
-                  ? "bg-[#58CC02] hover:bg-[#46A302] text-white shadow-lg shadow-green-200/50"
-                  : "bg-white/50 backdrop-blur-sm border border-gray-100 hover:border-[#1CB0F6] hover:text-[#1CB0F6]"
+                  ? "bg-[#7c3aed] hover:bg-[#6d28d9] text-white"
+                  : "bg-white border border-gray-200 hover:border-[#7c3aed] hover:text-[#7c3aed]"
               }`}
               onClick={() => handleMoodSelect(mood.label)}
             >
-              <span className="mr-2 text-2xl">{mood.emoji}</span>
-              <span className="font-medium">{mood.label}</span>
+              <span className="mr-2 text-xl">{mood.emoji}</span>
+              <span className="font-medium text-sm">{mood.label}</span>
             </Button>
           </motion.div>
         ))}

@@ -17,20 +17,20 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F6F8FD] via-[#F9F3FF] to-[#F3E8FF]">
+    <div className="min-h-screen bg-[#F8F9FF]">
       <div className="flex flex-col md:flex-row">
         {/* Sidebar - Hidden on mobile */}
-        <aside className="hidden md:flex flex-col w-72 min-h-screen bg-white/90 backdrop-blur-md border-r border-purple-100 p-4 sticky top-0">
-          <div className="flex items-center gap-3 mb-8 mt-4 px-4">
-            <div className="bg-gradient-to-r from-[#9b87f5] to-[#7c3aed] p-2 rounded-xl">
-              <Brain className="w-6 h-6 text-white" />
+        <aside className="hidden md:flex flex-col w-64 min-h-screen bg-white shadow-sm border-r border-gray-100 sticky top-0">
+          <div className="flex items-center gap-3 mb-8 mt-6 px-6">
+            <div className="bg-gradient-to-r from-[#7c3aed] to-[#6366f1] p-2 rounded-xl">
+              <Brain className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-[#7c3aed] to-[#9333ea] bg-clip-text text-transparent">
+            <h1 className="text-lg font-bold bg-gradient-to-r from-[#7c3aed] to-[#6366f1] bg-clip-text text-transparent">
               SchemaFun
             </h1>
           </div>
           
-          <nav className="flex-1 space-y-2 px-2">
+          <nav className="flex-1 space-y-1 px-3">
             {[
               { icon: Home, label: "Dashboard", active: true },
               { icon: Brain, label: "Schema Explorer" },
@@ -41,116 +41,104 @@ const Index = () => {
               { icon: User, label: "Profile" },
               { icon: Settings, label: "Settings" },
             ].map((item) => (
-              <motion.button
+              <button
                 key={item.label}
-                whileHover={{ x: 5 }}
-                whileTap={{ scale: 0.98 }}
-                className={`flex items-center gap-3 px-4 py-3 w-full rounded-xl text-left transition-colors ${
+                className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left transition-colors ${
                   item.active
-                    ? "bg-[#F3E8FF] text-[#7C3AED] font-medium"
+                    ? "bg-[#7c3aed]/10 text-[#7c3aed] font-medium"
                     : "text-gray-600 hover:bg-gray-50"
                 }`}
               >
-                <item.icon className={`w-5 h-5 ${item.active ? "text-[#7C3AED]" : ""}`} />
-                <span>{item.label}</span>
+                <item.icon className={`w-4 h-4 ${item.active ? "text-[#7c3aed]" : ""}`} />
+                <span className="text-sm">{item.label}</span>
                 {item.active && (
-                  <div className="ml-auto w-1.5 h-5 bg-[#7C3AED] rounded-full" />
+                  <div className="ml-auto w-1 h-4 bg-[#7c3aed] rounded-full" />
                 )}
-              </motion.button>
+              </button>
             ))}
           </nav>
           
-          <div className="mt-auto pt-6 border-t border-purple-100">
-            <div className="bg-gradient-to-r from-[#9b87f5]/10 to-[#7c3aed]/10 rounded-xl p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
-                  <span className="font-bold text-gray-700">2,450 pts</span>
-                </div>
-                <div className="flex items-center gap-1 bg-[#58CC02] text-white px-2 py-1 rounded-lg text-xs font-bold shadow-sm">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>PLUS</span>
-                </div>
+          <div className="mt-auto p-4 mx-3 mb-4 bg-gradient-to-r from-[#7c3aed]/5 to-[#6366f1]/5 rounded-xl">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <Trophy className="w-4 h-4 text-yellow-500" />
+                <span className="text-xs font-medium text-gray-700">2,450 pts</span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] h-2 rounded-full" style={{ width: "75%" }}></div>
+              <div className="flex items-center gap-1 bg-[#4ade80] text-white px-2 py-0.5 rounded text-xs font-medium">
+                <Sparkles className="w-3 h-3" />
+                <span>PLUS</span>
               </div>
-              <p className="text-xs text-gray-500 mt-2">Next reward: 50 points away</p>
             </div>
+            <div className="w-full bg-gray-100 rounded-full h-1.5">
+              <div className="bg-gradient-to-r from-[#7c3aed] to-[#6366f1] h-1.5 rounded-full" style={{ width: "75%" }}></div>
+            </div>
+            <p className="text-xs text-gray-500 mt-1.5">Next reward: 50 points away</p>
           </div>
         </aside>
         
         {/* Main content */}
-        <main className="flex-1 max-w-5xl mx-auto px-4 py-6 md:py-8 pb-24 md:pb-12 relative">
+        <main className="flex-1 max-w-6xl mx-auto px-4 py-4 md:py-6 pb-24 md:pb-12 relative">
           {/* Mobile header */}
           {isMobile && (
-            <motion.header 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-purple-100 -mx-4 px-4 py-3 mb-6"
-            >
+            <header className="sticky top-0 z-50 bg-white border-b border-gray-100 -mx-4 px-4 py-3 mb-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="bg-gradient-to-r from-[#9b87f5] to-[#7c3aed] p-2 rounded-xl">
-                      <Brain className="w-5 h-5 text-white" />
+                    <div className="bg-gradient-to-r from-[#7c3aed] to-[#6366f1] p-1.5 rounded-lg">
+                      <Brain className="w-4 h-4 text-white" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#FF4B4B] rounded-full flex items-center justify-center text-white text-xs font-bold">
+                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full flex items-center justify-center text-white text-[10px] font-bold">
                       5
                     </div>
                   </div>
                   <div className="flex flex-col items-start">
-                    <span className="text-xs text-gray-500">Current Streak</span>
-                    <span className="text-lg font-bold bg-gradient-to-r from-[#1CB0F6] to-[#58CC02] bg-clip-text text-transparent">
+                    <span className="text-[10px] text-gray-500">Current Streak</span>
+                    <span className="text-sm font-bold text-[#7c3aed]">
                       7 Days
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <button className="relative">
-                    <BellRing className="w-6 h-6 text-gray-600" />
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF4B4B] rounded-full" />
+                    <BellRing className="w-5 h-5 text-gray-600" />
+                    <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full" />
                   </button>
-                  <div className="flex items-center gap-1 bg-[#58CC02] text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg shadow-green-200/50">
-                    <Sparkles className="w-4 h-4" />
+                  <div className="flex items-center gap-1 bg-[#4ade80] text-white px-2 py-0.5 rounded-md text-xs font-medium">
+                    <Sparkles className="w-3 h-3" />
                     <span>PLUS</span>
                   </div>
                 </div>
               </div>
-            </motion.header>
+            </header>
           )}
 
           {/* Desktop header */}
           {!isMobile && (
-            <motion.header 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="flex items-center justify-between mb-8"
-            >
-              <h1 className="text-2xl font-bold text-gray-800">Hey Ellie! 👋</h1>
+            <header className="flex items-center justify-between mb-6">
+              <h1 className="text-xl font-semibold text-gray-800">Hey Ellie! 👋</h1>
               <div className="flex items-center gap-4">
                 <button className="relative">
-                  <BellRing className="w-6 h-6 text-gray-600" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF4B4B] rounded-full" />
+                  <BellRing className="w-5 h-5 text-gray-600" />
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full" />
                 </button>
                 <div className="flex items-center gap-2">
                   <div className="relative">
-                    <Heart className="w-6 h-6 text-[#FF4B4B]" />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#58CC02] rounded-full flex items-center justify-center text-white text-xs font-bold">
+                    <Heart className="w-5 h-5 text-red-500" />
+                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#4ade80] rounded-full flex items-center justify-center text-white text-[10px] font-bold">
                       5
                     </div>
                   </div>
                   <span className="text-sm font-medium text-gray-600">7 Day Streak</span>
                 </div>
               </div>
-            </motion.header>
+            </header>
           )}
 
-          <div className="space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {/* First column - Left side*/}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1 }}
               >
@@ -158,7 +146,7 @@ const Index = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
@@ -166,7 +154,7 @@ const Index = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
@@ -175,9 +163,9 @@ const Index = () => {
             </div>
             
             {/* Second column - Right side */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
@@ -185,7 +173,7 @@ const Index = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
@@ -193,18 +181,18 @@ const Index = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <section className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/50 p-6">
-                  <h2 className="text-xl font-bold text-gray-800 mb-4">Schema Patterns</h2>
-                  <div className="grid grid-cols-1 gap-4">
+                <section className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <h2 className="text-lg font-semibold text-gray-800 mb-4">Schema Patterns</h2>
+                  <div className="grid grid-cols-1 gap-3">
                     {schemaTherapyCards.map((card, index) => (
                       <motion.div
                         key={index}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
                       >
                         <SchemaCard
                           key={index}
@@ -225,32 +213,31 @@ const Index = () => {
 
       {/* Mobile navigation */}
       {isMobile && (
-        <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-purple-100 px-6 py-2 z-50">
-          <div className="max-w-[500px] mx-auto flex justify-between items-center">
+        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 py-1 z-50">
+          <div className="max-w-[500px] mx-auto flex justify-around items-center">
             {[
               { icon: Home, label: "Home", active: true },
               { icon: Brain, label: "Schemas" },
               { icon: Trophy, label: "Goals" },
               { icon: User, label: "Profile" }
             ].map((item) => (
-              <motion.button
+              <button
                 key={item.label}
-                whileTap={{ scale: 0.9 }}
-                className={`flex flex-col items-center gap-1 px-4 py-2 relative ${
-                  item.active ? "text-[#7C3AED]" : "text-gray-500"
-                } hover:text-[#7C3AED] transition-colors`}
+                className={`flex flex-col items-center px-2 py-1.5 relative ${
+                  item.active ? "text-[#7c3aed]" : "text-gray-500"
+                }`}
               >
-                <item.icon className="w-6 h-6" />
-                <span className={`text-xs font-medium ${item.active ? "opacity-100" : "opacity-0"} group-hover:opacity-100 transition-opacity`}>
+                <item.icon className="w-5 h-5" />
+                <span className={`text-[10px] mt-0.5 font-medium ${item.active ? "opacity-100" : "opacity-0"}`}>
                   {item.label}
                 </span>
                 {item.active && (
                   <motion.div 
                     layoutId="activeTab"
-                    className="absolute -bottom-2 w-10 h-1 bg-[#7C3AED] rounded-full" 
+                    className="absolute -bottom-1 w-8 h-0.5 bg-[#7c3aed] rounded-full" 
                   />
                 )}
-              </motion.button>
+              </button>
             ))}
           </div>
         </nav>
