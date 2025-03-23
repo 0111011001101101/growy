@@ -112,7 +112,7 @@ export const schemaTherapyCards = [
   },
   {
     title: "Discounting the Positive",
-    description: "Rejecting positive experiences by insisting they "don't count."",
+    description: "Rejecting positive experiences by insisting they 'don't count.'",
     example: "When someone praises your work: 'They're just being nice.'",
     type: "emotional"
   },
@@ -136,7 +136,7 @@ export const schemaTherapyCards = [
   },
   {
     title: "Should Statements",
-    description: "Having rigid rules about how you and others "should" act.",
+    description: "Having rigid rules about how you and others 'should' act.",
     example: "Thinking 'I should always be happy' or 'They should know what I want.'",
     type: "behavioral"
   },
@@ -153,4 +153,3 @@ export const schemaTherapyCards = [
     type: "interpersonal"
   }
 ];
-
