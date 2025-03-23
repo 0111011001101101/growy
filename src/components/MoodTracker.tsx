@@ -6,7 +6,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
 
 const moods = [
-  { emoji: "✨", label: "Slay" },
+  { emoji: "😊", label: "Great" },
   { emoji: "😌", label: "Vibing" },
   { emoji: "😔", label: "Meh" },
   { emoji: "😤", label: "Pressed" },
