@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Trophy, Target, ChevronUp, ChevronDown } from "lucide-react";
+import { Trophy, Target, ChevronUp, ChevronDown, Award, Sparkles } from "lucide-react";
 
 export const ProgressBar = () => {
   const { toast } = useToast();
@@ -32,40 +32,49 @@ export const ProgressBar = () => {
   );
 
   return (
-    <Card className="p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+    <Card className="p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-sm border border-blue-100">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
-          <Trophy className="h-5 w-5 text-amber-500" />
-          <h2 className="text-lg font-semibold text-gray-800">Your Progress</h2>
+          <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-1.5 rounded-md">
+            <Trophy className="h-5 w-5 text-white" />
+          </div>
+          <h2 className="text-lg font-semibold text-indigo-700">Your Journey</h2>
         </div>
         <Button 
           variant="ghost" 
           size="sm" 
           onClick={() => setExpanded(!expanded)}
-          className="h-8 w-8 p-0"
+          className="h-8 w-8 p-0 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-100"
         >
           {expanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
         </Button>
       </div>
       
-      <div className="mb-2">
-        <div className="flex justify-between items-center mb-1">
-          <span className="text-sm font-medium text-gray-600">Overall Progress</span>
-          <span className="text-sm font-bold text-indigo-600">{totalProgress}%</span>
+      <div className="mb-3">
+        <div className="flex justify-between items-center mb-1.5">
+          <span className="text-sm font-medium text-indigo-800">Overall Progress</span>
+          <div className="flex items-center gap-1.5">
+            <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+            <span className="text-sm font-bold text-indigo-700">{totalProgress}%</span>
+          </div>
         </div>
-        <Progress value={totalProgress} className="h-2" />
+        <Progress 
+          value={totalProgress} 
+          className="h-2.5 bg-blue-100" 
+          indicatorClassName="bg-gradient-to-r from-blue-500 to-indigo-500" 
+        />
       </div>
       
       {expanded && (
         <div className="mt-6 space-y-6">
           {goals.map((goal) => (
-            <div key={goal.id} className="space-y-2">
+            <div key={goal.id} className="space-y-2.5">
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                   <Target className="h-4 w-4 text-indigo-500" />
-                  <span className="text-sm font-medium text-gray-700">{goal.name}</span>
+                  <span className="text-sm font-medium text-indigo-800">{goal.name}</span>
                 </div>
-                <span className="text-sm font-semibold text-indigo-600">{goal.progress}%</span>
+                <span className="text-sm font-semibold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-full">{goal.progress}%</span>
               </div>
               <Slider
                 defaultValue={[goal.progress]}
@@ -77,9 +86,9 @@ export const ProgressBar = () => {
             </div>
           ))}
           
-          <div className="pt-2 border-t border-gray-100">
-            <p className="text-xs text-gray-500 italic">
-              Adjust the sliders to update your progress on each goal.
+          <div className="pt-2 border-t border-indigo-100">
+            <p className="text-xs text-indigo-600 italic">
+              Track your growth journey by updating your progress on each goal ✨
             </p>
           </div>
         </div>
@@ -91,9 +100,10 @@ export const ProgressBar = () => {
             variant="outline" 
             size="sm"
             onClick={() => setExpanded(true)}
-            className="text-xs text-indigo-600 hover:text-indigo-700 border-indigo-200"
+            className="text-xs text-indigo-600 hover:text-indigo-700 border-indigo-200 hover:border-indigo-300 hover:bg-indigo-50"
           >
-            Update Your Progress
+            <Award className="h-3.5 w-3.5 mr-1.5" />
+            Update Your Journey
           </Button>
         </div>
       )}

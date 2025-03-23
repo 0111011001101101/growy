@@ -24,7 +24,7 @@ export const MainContent = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <SchemaPatterns />
+          <SchemaStory />
         </motion.div>
         
         <motion.div
@@ -32,7 +32,7 @@ export const MainContent = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <SchemaStory />
+          <SchemaPatterns />
         </motion.div>
       </div>
       

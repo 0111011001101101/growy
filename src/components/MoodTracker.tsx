@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 const moods = [
   { emoji: "😊", label: "Great" },
@@ -25,11 +26,13 @@ export const MoodTracker = () => {
   };
 
   return (
-    <Card className="p-5 bg-white rounded-xl shadow-sm border border-gray-100">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4">
-        How are you feeling?
-      </h2>
-      <div className="grid grid-cols-2 gap-2">
+    <Card className="p-5 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl shadow-sm border border-pink-100">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-semibold text-purple-800">How are you feeling?</h2>
+        <Sparkles className="h-5 w-5 text-purple-400" />
+      </div>
+      
+      <div className="grid grid-cols-2 gap-2.5">
         {moods.map((mood) => (
           <motion.div
             key={mood.label}
@@ -40,8 +43,8 @@ export const MoodTracker = () => {
               variant={selectedMood === mood.label ? "default" : "outline"}
               className={`w-full h-12 rounded-lg transition-all ${
                 selectedMood === mood.label
-                  ? "bg-[#7c3aed] hover:bg-[#6d28d9] text-white"
-                  : "bg-white border border-gray-200 hover:border-[#7c3aed] hover:text-[#7c3aed]"
+                  ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0"
+                  : "bg-white border border-purple-200 hover:border-purple-300 hover:text-purple-700"
               }`}
               onClick={() => handleMoodSelect(mood.label)}
             >
