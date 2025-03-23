@@ -25,7 +25,7 @@ const challenges = [
   {
     id: 3,
     title: "Mindfulness Mission",
-    description: "Practice deep breathing for 2 minutes while focusing on the present moment 🌿",
+    description: "Nog tekst invoeren en quests linken!!!",
     points: 60,
     xp: 25,
     icon: Shield
