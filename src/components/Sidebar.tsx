@@ -12,7 +12,7 @@ export const Sidebar = () => {
           <Brain className="w-5 h-5 text-white" />
         </div>
         <h1 className="text-lg font-bold text-pink-500">
-          SchemaFun
+          Growy
         </h1>
       </div>
       
