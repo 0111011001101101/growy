@@ -1,0 +1,50 @@
+
+import { motion } from "framer-motion";
+import { MoodTracker } from "@/components/MoodTracker";
+import { SchemaStory } from "@/components/SchemaStory";
+import { ProgressChart } from "@/components/ProgressChart";
+import { DailyChallenge } from "@/components/DailyChallenge";
+import { Assignments } from "@/components/Assignments";
+import { SchemaPatterns } from "@/components/SchemaPatterns";
+
+export const MainContent = () => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="space-y-4">
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
+        >
+          <MoodTracker />
+        </motion.div>
+        
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <SchemaStory />
+        </motion.div>
+      </div>
+      
+      <div className="space-y-4">
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <DailyChallenge />
+        </motion.div>
+        
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <SchemaPatterns />
+        </motion.div>
+      </div>
+    </div>
+  );
+};

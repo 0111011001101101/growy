@@ -93,13 +93,13 @@ export const SchemaStory = () => {
   const scene = storyScenes.find((s) => s.id === currentScene);
 
   return (
-    <Card className="p-4 bg-gradient-to-br from-violet-50 to-indigo-50 rounded-xl shadow-sm border-0">
+    <Card className="p-4 bg-gradient-to-br from-pink-50 to-violet-50 rounded-xl shadow-sm border-0">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="bg-indigo-400 p-1.5 rounded-md">
+          <div className="bg-pink-400 p-1.5 rounded-md">
             <BookOpen className="text-white w-4 h-4" />
           </div>
-          <h2 className="text-base font-semibold text-indigo-500">
+          <h2 className="text-base font-semibold text-pink-500">
             Story Quest
           </h2>
         </div>
@@ -125,7 +125,7 @@ export const SchemaStory = () => {
           className="space-y-3"
         >
           <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg">
-            <p className="text-indigo-800 text-sm">{scene?.situation}</p>
+            <p className="text-pink-800 text-sm">{scene?.situation}</p>
           </div>
           
           {showImpact && (
@@ -143,7 +143,7 @@ export const SchemaStory = () => {
               <Button
                 key={index}
                 onClick={() => handleChoice(choice)}
-                className="w-full bg-white hover:bg-violet-50 text-indigo-700 border border-indigo-100 hover:border-indigo-300 shadow-sm font-medium rounded-lg h-auto text-left transition-all"
+                className="w-full bg-white hover:bg-pink-50 text-pink-700 border border-pink-100 hover:border-pink-300 shadow-sm font-medium rounded-lg h-auto text-left transition-all"
                 size="sm"
               >
                 <div className="flex items-start gap-2 w-full py-1">
@@ -160,7 +160,7 @@ export const SchemaStory = () => {
                 setCurrentScene(1);
                 setXp(0);
               }} 
-              className="w-full bg-gradient-to-r from-violet-400 to-indigo-400 hover:from-violet-500 hover:to-indigo-500 text-white font-medium py-2 rounded-lg mt-3 h-auto text-sm"
+              className="w-full bg-gradient-to-r from-pink-400 to-violet-400 hover:from-pink-500 hover:to-violet-500 text-white font-medium py-2 rounded-lg mt-3 h-auto text-sm"
             >
               Start New Quest ✨
             </Button>
