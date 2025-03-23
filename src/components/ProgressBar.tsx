@@ -22,7 +22,7 @@ export const ProgressBar = () => {
     ));
     
     toast({
-      title: "Progress updated",
+      title: "Progress updated! 🎉",
       description: "Your goal progress has been saved.",
     });
   };
@@ -32,13 +32,13 @@ export const ProgressBar = () => {
   );
 
   return (
-    <Card className="p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-sm border border-blue-100">
+    <Card className="p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
-          <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-1.5 rounded-md">
-            <Trophy className="h-5 w-5 text-white" />
+          <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-1.5 rounded-md shadow-inner">
+            <Trophy className="h-5 w-5 text-white animate-pulse" />
           </div>
-          <h2 className="text-lg font-semibold text-indigo-700">Your Journey</h2>
+          <h2 className="text-lg font-semibold text-indigo-700 bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">Your Journey</h2>
         </div>
         <Button 
           variant="ghost" 
@@ -60,8 +60,7 @@ export const ProgressBar = () => {
         </div>
         <Progress 
           value={totalProgress} 
-          className="h-2.5 bg-blue-100" 
-          indicatorClassName="bg-gradient-to-r from-blue-500 to-indigo-500" 
+          className="h-2.5 bg-blue-100 overflow-hidden rounded-full"
         />
       </div>
       
@@ -100,7 +99,7 @@ export const ProgressBar = () => {
             variant="outline" 
             size="sm"
             onClick={() => setExpanded(true)}
-            className="text-xs text-indigo-600 hover:text-indigo-700 border-indigo-200 hover:border-indigo-300 hover:bg-indigo-50"
+            className="text-xs text-indigo-600 hover:text-indigo-700 border-indigo-200 hover:border-indigo-300 hover:bg-indigo-50 animate-pulse"
           >
             <Award className="h-3.5 w-3.5 mr-1.5" />
             Update Your Journey
