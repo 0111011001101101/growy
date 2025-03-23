@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Shield, Users, Brain, Puzzle } from "lucide-react";
+import { Heart, Shield, Users, Brain, Puzzle, Filter, Scale, ThumbsDown, Zap, HeartCrack, Info } from "lucide-react";
 
 interface SchemaCardProps {
   title: string;
@@ -93,51 +93,64 @@ export const SchemaCard = ({ title, description, example, type }: SchemaCardProp
 
 export const schemaTherapyCards = [
   {
-    title: "Emotional Deprivation",
-    description: "A belief that one's emotional needs will never be met by others",
-    example: "Feeling that no one truly understands or cares about your feelings",
+    title: "All-or-Nothing Thinking",
+    description: "Seeing situations as completely good or bad with no middle ground.",
+    example: "Thinking 'If I don't get an A on this test, I'm a total failure.'",
+    type: "cognitive"
+  },
+  {
+    title: "Overgeneralization",
+    description: "Taking one negative event as a never-ending pattern of defeat.",
+    example: "After one rejection: 'No one will ever want to be my friend.'",
+    type: "cognitive"
+  },
+  {
+    title: "Mental Filtering",
+    description: "Focusing only on the negative details while ignoring the positive.",
+    example: "Only remembering the one criticism you got, not the five compliments.",
+    type: "cognitive"
+  },
+  {
+    title: "Discounting the Positive",
+    description: "Rejecting positive experiences by insisting they "don't count."",
+    example: "When someone praises your work: 'They're just being nice.'",
     type: "emotional"
   },
   {
-    title: "Abandonment",
-    description: "Fear that close relationships will end through abandonment",
-    example: "Constant worry that loved ones will leave you",
+    title: "Jumping to Conclusions",
+    description: "Making negative interpretations even though there are no facts to support it.",
+    example: "Assuming your friend is mad at you because they didn't text back right away.",
     type: "interpersonal"
   },
   {
-    title: "Defectiveness",
-    description: "Feeling fundamentally flawed or inadequate",
-    example: "Believing you're not worthy of love or acceptance",
-    type: "cognitive"
+    title: "Magnification",
+    description: "Exaggerating your problems and minimizing your positive qualities.",
+    example: "Making a small mistake and thinking it's the end of the world.",
+    type: "emotional"
   },
   {
-    title: "Social Isolation",
-    description: "Feeling different from others and not part of any group",
-    example: "Feeling like you don't fit in at social gatherings",
+    title: "Emotional Reasoning",
+    description: "Believing that how you feel reflects reality.",
+    example: "Feeling anxious about a presentation and thinking 'I must be terrible at this.'",
+    type: "emotional"
+  },
+  {
+    title: "Should Statements",
+    description: "Having rigid rules about how you and others "should" act.",
+    example: "Thinking 'I should always be happy' or 'They should know what I want.'",
     type: "behavioral"
   },
   {
-    title: "Dependence",
-    description: "Belief that one cannot handle daily responsibilities alone",
-    example: "Struggling to make decisions without others' input",
-    type: "coping"
+    title: "Labeling",
+    description: "Giving yourself or others a negative label based on one event.",
+    example: "After making a mistake: 'I'm such a loser.'",
+    type: "behavioral"
   },
   {
-    title: "Unrelenting Standards",
-    description: "Setting unrealistically high expectations for oneself",
-    example: "Never feeling satisfied with your achievements",
-    type: "cognitive"
-  },
-  {
-    title: "Entitlement",
-    description: "Belief that one is superior to others or deserves special treatment",
-    example: "Expecting others to always accommodate your preferences",
+    title: "Personalization & Blame",
+    description: "Blaming yourself for things that aren't entirely your fault or responsibility.",
+    example: "When your team loses: 'It's all my fault we lost the game.'",
     type: "interpersonal"
-  },
-  {
-    title: "Insufficient Self-Control",
-    description: "Difficulty restraining emotions or impulses",
-    example: "Struggling to maintain long-term goals due to immediate gratification",
-    type: "behavioral"
   }
 ];
+
