@@ -10,7 +10,7 @@ export const SchemaPatterns = () => {
       transition={{ delay: 0.4 }}
       className="bg-white rounded-xl shadow-sm border border-gray-100 p-4"
     >
-      <h2 className="text-base font-bold text-pink-500 mb-3">Schema Patterns</h2>
+      <h2 className="text-base font-bold text-indigo-500 mb-3">Schema Patterns</h2>
       <div className="grid grid-cols-1 gap-3">
         {schemaTherapyCards.slice(0, 3).map((card, index) => (
           <motion.div

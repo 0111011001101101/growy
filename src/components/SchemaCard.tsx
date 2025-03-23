@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,8 +20,8 @@ const schemaIcons = {
 };
 
 const schemaColors = {
-  emotional: "text-pink-500 bg-pink-50",
-  cognitive: "text-blue-500 bg-blue-50",
+  emotional: "text-blue-500 bg-blue-50",
+  cognitive: "text-indigo-500 bg-indigo-50",
   behavioral: "text-amber-500 bg-amber-50",
   interpersonal: "text-purple-500 bg-purple-50",
   coping: "text-green-500 bg-green-50",

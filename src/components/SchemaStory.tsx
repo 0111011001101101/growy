@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Heart, Star } from "lucide-react";
+import { BookOpen, Zap, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface StoryChoice {
@@ -21,51 +21,51 @@ const storyScenes: StoryScene[] = [
   {
     id: 1,
     situation:
-      "A friend invites you to a social gathering, but you're feeling anxious about meeting new people. What's your approach?",
+      "Your friend invites you to a game night, but you're feeling anxious about meeting new people. What's your approach?",
     choices: [
       {
-        text: "Choose to stay home and catch up on your favorite show",
+        text: "Choose to stay home and play some video games instead",
         nextScene: 2,
-        impact: "Self-care is important! Taking things at your own pace 💜",
+        impact: "Self-care is important! Taking things at your own pace 🎮",
       },
       {
-        text: "Go with your friend as emotional support",
+        text: "Go with your friend for support",
         nextScene: 3,
-        impact: "Great! Small steps lead to big changes ✨",
+        impact: "Great! Small steps lead to big changes 💪",
       },
     ],
   },
   {
     id: 2,
     situation:
-      "While scrolling through social media, you notice photos from the gathering and feel left out. How do you respond?",
+      "While checking social media, you notice photos from the game night and feel left out. How do you respond?",
     choices: [
       {
-        text: "Message your friend to share your feelings",
+        text: "Message your friend to talk about how you feel",
         nextScene: 4,
-        impact: "Opening up builds stronger connections 💕",
+        impact: "Opening up builds stronger connections 🔄",
       },
       {
-        text: "Join an online community with similar interests",
+        text: "Join an online gaming community with similar interests",
         nextScene: 4,
-        impact: "Finding your tribe in different ways is valid too! 🌟",
+        impact: "Finding your tribe in different ways is valid too! 🎯",
       },
     ],
   },
   {
     id: 3,
     situation:
-      "At the gathering, you're starting to enjoy the positive energy. What do you do next?",
+      "At the game night, you're starting to enjoy the positive energy. What do you do next?",
     choices: [
       {
         text: "Take a moment to appreciate your progress",
         nextScene: 4,
-        impact: "Acknowledging moments of growth is powerful 🎉",
+        impact: "Acknowledging moments of growth is powerful 🚀",
       },
       {
-        text: "Initiate a conversation with someone new",
+        text: "Challenge someone to a friendly competition",
         nextScene: 4,
-        impact: "Building confidence through small challenges! 👏",
+        impact: "Building confidence through small challenges! 🏆",
       },
     ],
   },
@@ -93,24 +93,24 @@ export const SchemaStory = () => {
   const scene = storyScenes.find((s) => s.id === currentScene);
 
   return (
-    <Card className="p-4 bg-gradient-to-br from-pink-50 to-violet-50 rounded-xl shadow-sm border-0">
+    <Card className="p-4 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-sm border-0">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="bg-pink-400 p-1.5 rounded-md">
+          <div className="bg-indigo-400 p-1.5 rounded-md">
             <BookOpen className="text-white w-4 h-4" />
           </div>
-          <h2 className="text-base font-semibold text-pink-500">
+          <h2 className="text-base font-semibold text-indigo-500">
             Story Quest
           </h2>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 bg-violet-100 px-2 py-0.5 rounded-full">
+          <div className="flex items-center gap-1 bg-blue-100 px-2 py-0.5 rounded-full">
             <Star className="text-amber-400 w-3.5 h-3.5" />
-            <span className="text-xs font-medium text-violet-600">{xp} XP</span>
+            <span className="text-xs font-medium text-blue-600">{xp} XP</span>
           </div>
           <div className="flex">
             {[...Array(3)].map((_, i) => (
-              <Heart key={i} className="text-pink-400 w-3.5 h-3.5 -ml-0.5" />
+              <Zap key={i} className="text-blue-400 w-3.5 h-3.5 -ml-0.5" />
             ))}
           </div>
         </div>
@@ -125,7 +125,7 @@ export const SchemaStory = () => {
           className="space-y-3"
         >
           <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg">
-            <p className="text-pink-800 text-sm">{scene?.situation}</p>
+            <p className="text-indigo-800 text-sm">{scene?.situation}</p>
           </div>
           
           {showImpact && (
@@ -143,7 +143,7 @@ export const SchemaStory = () => {
               <Button
                 key={index}
                 onClick={() => handleChoice(choice)}
-                className="w-full bg-white hover:bg-pink-50 text-pink-700 border border-pink-100 hover:border-pink-300 shadow-sm font-medium rounded-lg h-auto text-left transition-all"
+                className="w-full bg-white hover:bg-blue-50 text-blue-700 border border-blue-100 hover:border-blue-300 shadow-sm font-medium rounded-lg h-auto text-left transition-all"
                 size="sm"
               >
                 <div className="flex items-start gap-2 w-full py-1">
@@ -160,9 +160,9 @@ export const SchemaStory = () => {
                 setCurrentScene(1);
                 setXp(0);
               }} 
-              className="w-full bg-gradient-to-r from-pink-400 to-violet-400 hover:from-pink-500 hover:to-violet-500 text-white font-medium py-2 rounded-lg mt-3 h-auto text-sm"
+              className="w-full bg-gradient-to-r from-blue-400 to-indigo-500 hover:from-blue-500 hover:to-indigo-600 text-white font-medium py-2 rounded-lg mt-3 h-auto text-sm"
             >
-              Start New Quest ✨
+              Start New Quest 🚀
             </Button>
           )}
         </motion.div>

@@ -10,7 +10,7 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white">
       <div className="flex flex-col md:flex-row">
         <Sidebar />
         
