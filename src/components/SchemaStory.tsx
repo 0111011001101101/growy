@@ -92,44 +92,44 @@ export const SchemaStory = () => {
   const scene = storyScenes.find((s) => s.id === currentScene);
 
   return (
-    <Card className="p-6 bg-white rounded-xl shadow-lg">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <BookOpen className="text-blue-600 w-7 h-7" />
-          <h2 className="text-2xl font-bold text-blue-600">
+    <Card className="p-4 sm:p-6 bg-white rounded-xl shadow-lg">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <BookOpen className="text-blue-600 w-5 h-5 sm:w-7 sm:h-7" />
+          <h2 className="text-xl sm:text-2xl font-bold text-blue-600">
             Story Quest
           </h2>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Trophy className="text-yellow-400 w-5 h-5" />
-            <span className="font-bold text-blue-700">{xp} XP</span>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <Trophy className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-sm sm:text-base font-bold text-blue-700">{xp} XP</span>
           </div>
           <div className="flex">
             {[...Array(3)].map((_, i) => (
-              <Heart key={i} className="text-red-500 w-5 h-5 -ml-1" />
+              <Heart key={i} className="text-red-500 w-4 h-4 sm:w-5 sm:h-5 -ml-1" />
             ))}
           </div>
         </div>
       </div>
-      <div className="space-y-4">
-        <div className="bg-blue-50 p-4 rounded-xl mb-6">
-          <p className="text-blue-800 text-lg font-medium">{scene?.situation}</p>
+      <div className="space-y-3 sm:space-y-4">
+        <div className="bg-blue-50 p-3 sm:p-4 rounded-xl mb-3 sm:mb-4">
+          <p className="text-blue-800 text-base sm:text-lg font-medium">{scene?.situation}</p>
         </div>
         {showImpact && (
-          <div className="bg-green-100 text-green-800 p-4 rounded-xl mb-4 animate-bounce">
+          <div className="bg-green-100 text-green-800 p-3 sm:p-4 rounded-xl mb-3 animate-bounce">
             {showImpact}
           </div>
         )}
-        <div className="grid gap-3">
+        <div className="grid gap-2 sm:gap-3">
           {scene?.choices.map((choice, index) => (
             <Button
               key={index}
               onClick={() => handleChoice(choice)}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-xl h-auto text-left"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-3 rounded-xl h-auto text-left"
               size="lg"
             >
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 w-full overflow-hidden">
                 <Star className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" />
                 <span className="inline-block break-words">{choice.text}</span>
               </div>
