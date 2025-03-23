@@ -17,15 +17,15 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-violet-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white">
       <div className="flex flex-col md:flex-row">
         {/* Sidebar - Hidden on mobile */}
         <aside className="hidden md:flex flex-col w-64 min-h-screen bg-white shadow-sm sticky top-0">
           <div className="flex items-center gap-3 mb-8 mt-6 px-6">
-            <div className="bg-gradient-to-r from-violet-500 to-indigo-500 p-2 rounded-xl">
+            <div className="bg-gradient-to-r from-violet-400 to-indigo-400 p-2 rounded-lg">
               <Brain className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-lg font-bold bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-transparent">
+            <h1 className="text-lg font-bold text-indigo-500">
               SchemaFun
             </h1>
           </div>
@@ -45,23 +45,23 @@ const Index = () => {
                 key={item.label}
                 className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left transition-colors ${
                   item.active
-                    ? "bg-violet-100 text-violet-700 font-medium"
-                    : "text-gray-600 hover:bg-gray-50"
+                    ? "bg-violet-50 text-violet-600 font-medium"
+                    : "text-gray-500 hover:bg-gray-50"
                 }`}
               >
                 <item.icon className={`w-4 h-4 ${item.active ? "text-violet-500" : ""}`} />
                 <span className="text-sm">{item.label}</span>
                 {item.active && (
-                  <div className="ml-auto w-1 h-4 bg-violet-500 rounded-full" />
+                  <div className="ml-auto w-1 h-4 bg-violet-400 rounded-full" />
                 )}
               </button>
             ))}
           </nav>
           
-          <div className="mt-auto p-4 mx-3 mb-4 bg-gradient-to-r from-violet-50 to-indigo-50 rounded-xl">
+          <div className="mt-auto p-4 mx-3 mb-4 bg-gradient-to-r from-violet-50 to-indigo-50 rounded-lg">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-amber-500" />
+                <Trophy className="w-4 h-4 text-amber-400" />
                 <span className="text-xs font-medium text-gray-700">2,450 pts</span>
               </div>
               <div className="flex items-center gap-1 bg-gradient-to-r from-emerald-400 to-teal-400 text-white px-2 py-0.5 rounded-full text-xs font-medium">
@@ -70,7 +70,7 @@ const Index = () => {
               </div>
             </div>
             <div className="w-full bg-white/50 rounded-full h-1.5">
-              <div className="bg-gradient-to-r from-violet-500 to-indigo-500 h-1.5 rounded-full" style={{ width: "75%" }}></div>
+              <div className="bg-gradient-to-r from-violet-400 to-indigo-400 h-1.5 rounded-full" style={{ width: "75%" }}></div>
             </div>
             <p className="text-xs text-gray-500 mt-1.5">Next reward: 50 points away</p>
           </div>
@@ -84,24 +84,24 @@ const Index = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="bg-gradient-to-r from-violet-500 to-indigo-500 p-1.5 rounded-lg">
+                    <div className="bg-gradient-to-r from-violet-400 to-indigo-400 p-1.5 rounded-md">
                       <Brain className="w-4 h-4 text-white" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-bold">
+                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-bold">
                       5
                     </div>
                   </div>
                   <div className="flex flex-col items-start">
                     <span className="text-[10px] text-gray-500">Current Streak</span>
-                    <span className="text-sm font-bold text-violet-600">
+                    <span className="text-sm font-bold text-violet-500">
                       7 Days
                     </span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <button className="relative">
-                    <BellRing className="w-5 h-5 text-gray-600" />
-                    <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-pink-500 rounded-full" />
+                    <BellRing className="w-5 h-5 text-gray-500" />
+                    <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-pink-400 rounded-full" />
                   </button>
                   <div className="flex items-center gap-1 bg-gradient-to-r from-emerald-400 to-teal-400 text-white px-2 py-0.5 rounded-full text-xs font-medium">
                     <Sparkles className="w-3 h-3" />
@@ -118,12 +118,12 @@ const Index = () => {
               <h1 className="text-xl font-semibold text-gray-800">Hey Ellie! 👋</h1>
               <div className="flex items-center gap-4">
                 <button className="relative">
-                  <BellRing className="w-5 h-5 text-gray-600" />
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-pink-500 rounded-full" />
+                  <BellRing className="w-5 h-5 text-gray-500" />
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-pink-400 rounded-full" />
                 </button>
                 <div className="flex items-center gap-2">
                   <div className="relative">
-                    <Heart className="w-5 h-5 text-pink-500" />
+                    <Heart className="w-5 h-5 text-pink-400" />
                     <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full flex items-center justify-center text-white text-[10px] font-bold">
                       5
                     </div>
@@ -182,27 +182,26 @@ const Index = () => {
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
+                className="bg-white rounded-xl shadow-sm border border-gray-100 p-4"
               >
-                <section className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-sm border border-white/50 p-5">
-                  <h2 className="text-base font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent mb-4">Schema Patterns</h2>
-                  <div className="grid grid-cols-1 gap-3">
-                    {schemaTherapyCards.slice(0, 3).map((card, index) => (
-                      <motion.div
-                        key={index}
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                      >
-                        <SchemaCard
-                          key={index}
-                          title={card.title}
-                          description={card.description}
-                          example={card.example}
-                          type={card.type as "emotional" | "cognitive" | "behavioral" | "interpersonal" | "coping"}
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                </section>
+                <h2 className="text-base font-bold text-indigo-500 mb-3">Schema Patterns</h2>
+                <div className="grid grid-cols-1 gap-3">
+                  {schemaTherapyCards.slice(0, 3).map((card, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
+                    >
+                      <SchemaCard
+                        key={card.title}
+                        title={card.title}
+                        description={card.description}
+                        example={card.example}
+                        type={card.type as "emotional" | "cognitive" | "behavioral" | "interpersonal" | "coping"}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </div>
           </div>
@@ -222,7 +221,7 @@ const Index = () => {
               <button
                 key={item.label}
                 className={`flex flex-col items-center px-2 py-1.5 relative ${
-                  item.active ? "text-violet-600" : "text-gray-500"
+                  item.active ? "text-violet-500" : "text-gray-400"
                 }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -232,7 +231,7 @@ const Index = () => {
                 {item.active && (
                   <motion.div 
                     layoutId="activeTab"
-                    className="absolute -bottom-1 w-8 h-0.5 bg-violet-600 rounded-full" 
+                    className="absolute -bottom-1 w-8 h-0.5 bg-violet-400 rounded-full" 
                   />
                 )}
               </button>

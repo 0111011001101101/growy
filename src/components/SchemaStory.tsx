@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Heart, Star, Trophy } from "lucide-react";
+import { BookOpen, Heart, Star } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface StoryChoice {
   text: string;
@@ -20,15 +21,15 @@ const storyScenes: StoryScene[] = [
   {
     id: 1,
     situation:
-      "A friend invites you to a social gathering, but you're feeling anxious about meeting new people. What's your approach? 🤔",
+      "A friend invites you to a social gathering, but you're feeling anxious about meeting new people. What's your approach?",
     choices: [
       {
-        text: "Choose to stay home and catch up on your favorite show 📱",
+        text: "Choose to stay home and catch up on your favorite show",
         nextScene: 2,
         impact: "Self-care is important! Taking things at your own pace 💜",
       },
       {
-        text: "Go with your friend as emotional support 🫂",
+        text: "Go with your friend as emotional support",
         nextScene: 3,
         impact: "Great! Small steps lead to big changes ✨",
       },
@@ -37,15 +38,15 @@ const storyScenes: StoryScene[] = [
   {
     id: 2,
     situation:
-      "While scrolling through social media, you notice photos from the gathering and feel left out. How do you respond? 🤔",
+      "While scrolling through social media, you notice photos from the gathering and feel left out. How do you respond?",
     choices: [
       {
-        text: "Message your friend to share your feelings 💌",
+        text: "Message your friend to share your feelings",
         nextScene: 4,
         impact: "Opening up builds stronger connections 💕",
       },
       {
-        text: "Join an online community with similar interests 🎮",
+        text: "Join an online community with similar interests",
         nextScene: 4,
         impact: "Finding your tribe in different ways is valid too! 🌟",
       },
@@ -54,15 +55,15 @@ const storyScenes: StoryScene[] = [
   {
     id: 3,
     situation:
-      "At the gathering, you're starting to enjoy the positive energy. What do you do next? ✨",
+      "At the gathering, you're starting to enjoy the positive energy. What do you do next?",
     choices: [
       {
-        text: "Take a moment to appreciate your progress 📸",
+        text: "Take a moment to appreciate your progress",
         nextScene: 4,
         impact: "Acknowledging moments of growth is powerful 🎉",
       },
       {
-        text: "Initiate a conversation with someone new 💬",
+        text: "Initiate a conversation with someone new",
         nextScene: 4,
         impact: "Building confidence through small challenges! 👏",
       },
@@ -70,7 +71,7 @@ const storyScenes: StoryScene[] = [
   },
   {
     id: 4,
-    situation: "You've grown through this experience! What did this teach you about managing social anxiety? 🌟",
+    situation: "You've grown through this experience! What did this teach you about managing social anxiety?",
     choices: [],
   },
 ];
@@ -92,20 +93,20 @@ export const SchemaStory = () => {
   const scene = storyScenes.find((s) => s.id === currentScene);
 
   return (
-    <Card className="p-4 sm:p-5 bg-gradient-to-br from-violet-50 to-indigo-50 rounded-2xl shadow-md border-0">
-      <div className="flex items-center justify-between mb-4">
+    <Card className="p-4 bg-gradient-to-br from-violet-50 to-indigo-50 rounded-xl shadow-sm border-0">
+      <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="bg-indigo-500 p-1.5 rounded-lg">
-            <BookOpen className="text-white w-4 h-4 sm:w-5 sm:h-5" />
+          <div className="bg-indigo-400 p-1.5 rounded-md">
+            <BookOpen className="text-white w-4 h-4" />
           </div>
-          <h2 className="text-base sm:text-lg font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-base font-semibold text-indigo-500">
             Story Quest
           </h2>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 bg-violet-100 px-2 py-0.5 rounded-full">
-            <Trophy className="text-amber-500 w-3.5 h-3.5" />
-            <span className="text-xs font-bold text-violet-700">{xp} XP</span>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 bg-violet-100 px-2 py-0.5 rounded-full">
+            <Star className="text-amber-400 w-3.5 h-3.5" />
+            <span className="text-xs font-medium text-violet-600">{xp} XP</span>
           </div>
           <div className="flex">
             {[...Array(3)].map((_, i) => (
@@ -114,42 +115,58 @@ export const SchemaStory = () => {
           </div>
         </div>
       </div>
-      <div className="space-y-3">
-        <div className="bg-white/70 backdrop-blur-sm p-3 rounded-xl">
-          <p className="text-indigo-800 text-sm sm:text-base font-medium">{scene?.situation}</p>
-        </div>
-        {showImpact && (
-          <div className="bg-gradient-to-r from-green-100 to-emerald-100 text-emerald-700 p-2.5 text-sm rounded-xl mb-2 animate-pulse">
-            {showImpact}
+      
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={currentScene}
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -5 }}
+          className="space-y-3"
+        >
+          <div className="bg-white/70 backdrop-blur-sm p-3 rounded-lg">
+            <p className="text-indigo-800 text-sm">{scene?.situation}</p>
           </div>
-        )}
-        <div className="grid gap-2">
-          {scene?.choices.map((choice, index) => (
-            <Button
-              key={index}
-              onClick={() => handleChoice(choice)}
-              className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-medium py-2 px-3 rounded-xl h-auto text-left"
-              size="sm"
+          
+          {showImpact && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="bg-gradient-to-r from-green-100 to-emerald-100 text-emerald-700 p-2.5 text-xs rounded-lg mb-2"
             >
-              <div className="flex items-start gap-2 w-full overflow-hidden">
-                <Star className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
-                <span className="inline-block break-words text-xs sm:text-sm">{choice.text}</span>
-              </div>
+              {showImpact}
+            </motion.div>
+          )}
+          
+          <div className="space-y-2">
+            {scene?.choices.map((choice, index) => (
+              <Button
+                key={index}
+                onClick={() => handleChoice(choice)}
+                className="w-full bg-white hover:bg-violet-50 text-indigo-700 border border-indigo-100 hover:border-indigo-300 shadow-sm font-medium rounded-lg h-auto text-left transition-all"
+                size="sm"
+              >
+                <div className="flex items-start gap-2 w-full py-1">
+                  <Star className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-xs overflow-hidden break-words">{choice.text}</span>
+                </div>
+              </Button>
+            ))}
+          </div>
+          
+          {currentScene === 4 && (
+            <Button 
+              onClick={() => {
+                setCurrentScene(1);
+                setXp(0);
+              }} 
+              className="w-full bg-gradient-to-r from-violet-400 to-indigo-400 hover:from-violet-500 hover:to-indigo-500 text-white font-medium py-2 rounded-lg mt-3 h-auto text-sm"
+            >
+              Start New Quest ✨
             </Button>
-          ))}
-        </div>
-        {currentScene === 4 && (
-          <Button 
-            onClick={() => {
-              setCurrentScene(1);
-              setXp(0);
-            }} 
-            className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-medium py-2 rounded-xl mt-3 h-auto text-sm"
-          >
-            Start New Quest ✨
-          </Button>
-        )}
-      </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </Card>
   );
 };
