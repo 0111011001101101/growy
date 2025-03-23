@@ -4,8 +4,8 @@ import { MoodTracker } from "@/components/MoodTracker";
 import { SchemaStory } from "@/components/SchemaStory";
 import { ProgressChart } from "@/components/ProgressChart";
 import { DailyChallenge } from "@/components/DailyChallenge";
-import { Assignments } from "@/components/Assignments";
 import { SchemaPatterns } from "@/components/SchemaPatterns";
+import { ProgressBar } from "@/components/ProgressBar";
 
 export const MainContent = () => {
   return (
@@ -24,7 +24,7 @@ export const MainContent = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <SchemaStory />
+          <SchemaPatterns />
         </motion.div>
       </div>
       
@@ -42,7 +42,15 @@ export const MainContent = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <SchemaPatterns />
+          <ProgressBar />
+        </motion.div>
+        
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          <SchemaStory />
         </motion.div>
       </div>
     </div>
