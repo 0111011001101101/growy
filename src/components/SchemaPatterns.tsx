@@ -22,7 +22,7 @@ export const SchemaPatterns = () => {
           <div className="bg-gradient-to-r from-violet-500 to-indigo-500 p-1.5 rounded-md shadow-inner">
             <Zap className="h-4 w-4 text-white" />
           </div>
-          <h2 className="text-base font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">Schema Patterns</h2>
+          <h2 className="text-base font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">CBT (Cognitive Distortions)</h2>
         </div>
         <Button 
           variant="ghost" 
@@ -43,11 +43,11 @@ export const SchemaPatterns = () => {
             transition={{ duration: 0.3 }}
             className="bg-gradient-to-r from-indigo-50 to-violet-50 p-3 rounded-lg mb-3 text-xs text-gray-700 leading-relaxed shadow-sm"
           >
-            <p className="font-medium mb-1 text-indigo-700">Why schemas matter:</p>
+            <p className="font-medium mb-1 text-indigo-700">Why cognitive distortions matter:</p>
             <ul className="list-disc pl-4 space-y-1 text-gray-700">
-              <li>They influence how you interpret situations</li>
-              <li>They shape your emotional responses</li>
-              <li>They drive unconscious behaviors</li>
+              <li>They create inaccurate thoughts about situations</li>
+              <li>They trigger negative emotional responses</li>
+              <li>They influence unhelpful behaviors</li>
             </ul>
             <p className="mt-2 text-indigo-600 font-medium">Tap any card to explore examples</p>
           </motion.div>
@@ -110,7 +110,7 @@ export const SchemaPatterns = () => {
         className="w-full mt-3 bg-gradient-to-r from-indigo-50 to-violet-50 text-indigo-600 hover:text-indigo-700 hover:from-indigo-100 hover:to-violet-100 text-xs font-medium"
         onClick={() => window.location.href = '/schemas'}
       >
-        See all schema patterns
+        See all cognitive distortions
         <ChevronRight className="h-3 w-3 ml-1" />
       </Button>
     </motion.div>
