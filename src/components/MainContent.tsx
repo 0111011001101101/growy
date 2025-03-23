@@ -26,6 +26,14 @@ export const MainContent = () => {
         >
           <SchemaPatterns />
         </motion.div>
+        
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <SchemaStory />
+        </motion.div>
       </div>
       
       <div className="space-y-4">
@@ -43,14 +51,6 @@ export const MainContent = () => {
           transition={{ delay: 0.3 }}
         >
           <ProgressBar />
-        </motion.div>
-        
-        <motion.div
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <SchemaStory />
         </motion.div>
       </div>
     </div>
