@@ -29,14 +29,14 @@ const Schemas = () => {
           {isMobile && <MobileHeader />}
           
           <div className="mb-6">
-            <h1 className="text-xl font-semibold text-gray-800 mb-4">Schema Patterns</h1>
+            <h1 className="text-xl font-semibold text-gray-800 mb-4">Unhelpful Thinking Patterns</h1>
             <div className="relative mb-4">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-gray-400" />
               </div>
               <input
                 type="text"
-                placeholder="Search schemas..."
+                placeholder="Search thinking patterns..."
                 className="pl-10 w-full py-2 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
