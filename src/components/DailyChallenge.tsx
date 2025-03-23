@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Trophy, Star, Flame, Heart, Brain, Shield, Book } from "lucide-react";
+import { Trophy, Star, Flame, Heart, Brain, Shield } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const challenges = [
@@ -29,15 +29,7 @@ const challenges = [
     points: 60,
     xp: 25,
     icon: Shield
-  },
-  {
-    id: 4,
-    title: "Schema Journaling",
-    description: "Write about a situation that triggered a strong emotion and identify the underlying belief 📝",
-    points: 80,
-    xp: 35,
-    icon: Book
-  },
+  }
 ];
 
 export const DailyChallenge = () => {

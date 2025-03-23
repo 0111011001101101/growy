@@ -10,7 +10,6 @@ const moods = [
   { emoji: "😌", label: "Vibing" },
   { emoji: "😔", label: "Meh" },
   { emoji: "😤", label: "Pressed" },
-  { emoji: "😰", label: "Stressed" },
 ];
 
 export const MoodTracker = () => {
